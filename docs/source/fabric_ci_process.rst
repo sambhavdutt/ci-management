@@ -17,32 +17,27 @@ currently utilizing the following revisions in the **Master** and
 
 **Master:**
 
--  GO version:(e.g. v1.10)
+-  Go version:(e.g. v1.11.1)
    https://github.com/hyperledger/fabric/blob/master/ci.properties
 
--  DOCKER version: 17.12.0-ce
+-  Docker version: 17.12.0-ce
 
--  baseimage version:(e.g. 0.4.6)
-   https://github.com/hyperledger/fabric/blob/196c0de7c1618952a8f342e406a1021203845eba/Makefile#L46
+-  Baseimage version:(e.g. 0.4.14)
+   https://github.com/hyperledger/fabric/blob/a2427b0d207b48c5778897881f535da4a6326070/Makefile#L50
 
-**Release-1.0:**
+You can find these detais for the released versions of fabric in the respective branches of the fabric repository
 
--  GO version:(e.g. v1.7.5)
-   https://github.com/hyperledger/fabric/blob/release-1.0/ci.properties
+**Release-1.3:**
+https://github.com/hyperledger/fabric
 
--  DOCKER version: 17.12.0-ce
-
--  baseimage version:(e.g. 0.4.6)
+**Release-1.2:**
+https://github.com/hyperledger/fabric/tree/release-1.2
 
 **Release-1.1:**
+https://github.com/hyperledger/fabric/tree/release-1.1
 
--  GO version:(e.g. v1.9.2)
-   https://github.com/hyperledger/fabric/blob/release-1.1/ci.properties
-
--  DOCKER version: 17.12.0-ce
-
--  baseimage version:(e.g. 0.4.6)
-   https://github.com/hyperledger/fabric/blob/da14b6bae4a843dfb3fcece5a08ae0ea18488a7a/Makefile#L39
+**Release-1.0:**
+https://github.com/hyperledger/fabric/tree/release-1.0
 
 If you would like to know more details on the tool versions, you can refer to
 any of the Fabric jobs listed here: `Fabric <https://jenkins.hyperledger.org/view/fabric/>`__,
@@ -96,7 +91,7 @@ patch set:
    extensions (.rst, .md, .py, .png,.css,.html and .ini), the above
    job posts the ``Run DocBuild`` comment to the patch set in Gerrit and
    sends the following votes against the patch set:
-   ``F1-VerifyBuild=+1 F2-SmokeTest=+1 F3-IntegrationTest=+1 F3-UnitTest=+1``.
+   ``F1-VerifyBuild=+1 F3-IntegrationTest=+1 F3-UnitTest=+1``.
 
 .. figure:: ./images/verifyjob.png
    :alt: Views
@@ -144,14 +139,6 @@ patch set:
                    - Once the documentation build is successful, it is
                      archived, and published on the Nexus repository.
 
-           * Run SmokeTest
-               - This comment triggers `fabric-smoke-tests-x86_64` job and posts
-                 `F2-SmokeTest=+1` to the patch set and triggers the Unit-Test
-                 and IntegrationTest jobs by posting `Run UnitTest` and `Run
-                 IntegrationTest` comment if successful, otherwise posts
-                 `F2-SmokeTest=-1` which doesn't trigger the Unit-Test or
-                 IntegrationTest jobs upon failure.
-
           * Run IntegrationTest
                - This comment triggers `fabric-verify-integration-tests-x86_64`
                  job and posts `F3-IntegrationTest=+1` on a successful run of
@@ -178,7 +165,6 @@ patch sets. The votes on the patch set will look like the following:
 
     F1-VerifyBuild     +1 Hyperledger Jobbuilder
     F2-DocBuild        +1 Hyperledger Jobbuilder
-    F2-SmokeTest       +1 Hyperledger Jobbuilder
     F3-IntegrationTest +1 Hyperledger Jobbuilder
     F3-UnitTest        +1 Hyperledger Jobbuilder
 
@@ -289,8 +275,6 @@ click **Post**
    binaries to nexus which further downloaded by SmokeTest and UnitTest jobs.
    Please make sure that the images and binaries are published for that specific
    commit.
-
-   ``Run SmokeTest`` – Triggers fabric-smoke-tests-x86_64.
 
    ``Run UnitTest``  –  Triggers fabric-verify-unit-tests-x86_64.
 
