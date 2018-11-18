@@ -13,7 +13,7 @@ below environment(s).
 The Hyperledger Fabric (and associated) projects utilize various tools
 and workflows for continuous integration. Fabric CI is
 currently utilizing the following revisions in the **Master** and
-**Release-1.1**, **Release-1.0** branches.
+**Release** branches.
 
 **Master:**
 
@@ -25,7 +25,7 @@ currently utilizing the following revisions in the **Master** and
 -  Baseimage version:(e.g. 0.4.14)
    https://github.com/hyperledger/fabric/blob/a2427b0d207b48c5778897881f535da4a6326070/Makefile#L50
 
-You can find these detais for the released versions of fabric in the respective branches of the fabric repository
+You can find these details for the released versions of fabric in the respective branches of the fabric repository
 
 **Release-1.3:**
 https://github.com/hyperledger/fabric
